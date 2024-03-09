@@ -1,5 +1,7 @@
 #include<iostream>
 #include<SDL2/SDL.h>
+#include<SDL2/SDL_image.h>
+#include<SDL2/SDL_ttf.h>
 #include"Render.h"
 
 struct Time
@@ -205,6 +207,21 @@ int main()
         return(-1);
     }
 
+    if (TTF_Init() < 0)
+    {
+        printf("SDL_ttf could not initialize! SDL_Error: %s\n", TTF_GetError());
+        return(-1);
+    }
+
+    TTF_Font* _font;
+
+    _font = TTF_OpenFont("res/fonts/open-sans/OpenSans-Bold.ttf", 24);
+    if(!_font)
+    {
+        printf("Could not open font!\n");
+        return(-1);
+    }
+
     SDL_Window* _window = NULL;
     
     _window = SDL_CreateWindow
@@ -224,6 +241,15 @@ int main()
     }  
 
     SDL_Renderer* _render = SDL_CreateRenderer(_window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+
+    SDL_Surface* _textSurface;
+    SDL_Color _color = { 0, 0, 0};
+
+    _textSurface = TTF_RenderText_Solid(_font, "Hello world", _color);
+
+    SDL_Texture* _textTexture = SDL_CreateTextureFromSurface(_render, _textSurface);
+    SDL_Rect _dest = { 0, 0, _textSurface->w, _textSurface->h };
+    SDL_RenderCopy(_render, _textTexture, NULL, &_dest);
 
     Time _time;
 
@@ -301,6 +327,9 @@ int main()
 
         SDL_RenderPresent(_render);
     }
+    
+    SDL_DestroyTexture(_textTexture);
+    SDL_FreeSurface(_textSurface);
 
     SDL_DestroyWindow(_window);
     SDL_Quit();

@@ -17,7 +17,7 @@ LDFLAGS =
 #-framework SDL2 -F /Library/Frameworks
 #-framework SDL2_image -F /Library/Frameworks
 
-LINKER_FLAGS = -lSDL2 -lSDL2_image
+LINKER_FLAGS = -lSDL2 -lSDL2_image -lSDL2_ttf
 
 TARGET = app
 
