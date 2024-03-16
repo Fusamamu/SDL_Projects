@@ -1,6 +1,6 @@
 CC = g++
 
-CFLAGS = -std=c++11
+CFLAGS = -std=c++17
 
 #-I /Library/Frameworks/SDL2 is not necessary anymore??
 INCLUDES = -I src -I include -I /Library/Frameworks/SDL2.framework/Headers 
