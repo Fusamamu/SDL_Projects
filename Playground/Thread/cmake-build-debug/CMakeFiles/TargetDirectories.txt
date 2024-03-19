@@ -1,0 +1,3 @@
+/Users/pengaki/Desktop/SDL_Projects/Playground/Thread/cmake-build-debug/CMakeFiles/Thread.dir
+/Users/pengaki/Desktop/SDL_Projects/Playground/Thread/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/pengaki/Desktop/SDL_Projects/Playground/Thread/cmake-build-debug/CMakeFiles/rebuild_cache.dir
