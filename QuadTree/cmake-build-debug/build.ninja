@@ -52,21 +52,14 @@ build cmake_object_order_depends_target_QuadTree: phony || CMakeFiles/QuadTree.d
 build CMakeFiles/QuadTree.dir/main.cpp.o: CXX_COMPILER__QuadTree_unscanned_Debug /Users/pengaki/Desktop/SDL_Projects/QuadTree/main.cpp || cmake_object_order_depends_target_QuadTree
   DEP_FILE = CMakeFiles/QuadTree.dir/main.cpp.o.d
   FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.6 -fcolor-diagnostics
-  INCLUDES = -I/Users/pengaki/Desktop/SDL_Projects/QuadTree/QuadTree -F/Library/Frameworks
+  INCLUDES = -I/Users/pengaki/Desktop/SDL_Projects/QuadTree/QuadTree -I/Users/pengaki/Desktop/SDL_Projects/QuadTree/include -F/Library/Frameworks
   OBJECT_DIR = CMakeFiles/QuadTree.dir
   OBJECT_FILE_DIR = CMakeFiles/QuadTree.dir
 
-build CMakeFiles/QuadTree.dir/QuadTree.cpp.o: CXX_COMPILER__QuadTree_unscanned_Debug /Users/pengaki/Desktop/SDL_Projects/QuadTree/QuadTree.cpp || cmake_object_order_depends_target_QuadTree
-  DEP_FILE = CMakeFiles/QuadTree.dir/QuadTree.cpp.o.d
+build CMakeFiles/QuadTree.dir/Object.cpp.o: CXX_COMPILER__QuadTree_unscanned_Debug /Users/pengaki/Desktop/SDL_Projects/QuadTree/Object.cpp || cmake_object_order_depends_target_QuadTree
+  DEP_FILE = CMakeFiles/QuadTree.dir/Object.cpp.o.d
   FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.6 -fcolor-diagnostics
-  INCLUDES = -I/Users/pengaki/Desktop/SDL_Projects/QuadTree/QuadTree -F/Library/Frameworks
-  OBJECT_DIR = CMakeFiles/QuadTree.dir
-  OBJECT_FILE_DIR = CMakeFiles/QuadTree.dir
-
-build CMakeFiles/QuadTree.dir/BBox.cpp.o: CXX_COMPILER__QuadTree_unscanned_Debug /Users/pengaki/Desktop/SDL_Projects/QuadTree/BBox.cpp || cmake_object_order_depends_target_QuadTree
-  DEP_FILE = CMakeFiles/QuadTree.dir/BBox.cpp.o.d
-  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.6 -fcolor-diagnostics
-  INCLUDES = -I/Users/pengaki/Desktop/SDL_Projects/QuadTree/QuadTree -F/Library/Frameworks
+  INCLUDES = -I/Users/pengaki/Desktop/SDL_Projects/QuadTree/QuadTree -I/Users/pengaki/Desktop/SDL_Projects/QuadTree/include -F/Library/Frameworks
   OBJECT_DIR = CMakeFiles/QuadTree.dir
   OBJECT_FILE_DIR = CMakeFiles/QuadTree.dir
 
@@ -78,7 +71,7 @@ build CMakeFiles/QuadTree.dir/BBox.cpp.o: CXX_COMPILER__QuadTree_unscanned_Debug
 #############################################
 # Link the executable QuadTree
 
-build QuadTree: CXX_EXECUTABLE_LINKER__QuadTree_Debug CMakeFiles/QuadTree.dir/main.cpp.o CMakeFiles/QuadTree.dir/QuadTree.cpp.o CMakeFiles/QuadTree.dir/BBox.cpp.o | /Library/Frameworks/SDL2.framework/SDL2
+build QuadTree: CXX_EXECUTABLE_LINKER__QuadTree_Debug CMakeFiles/QuadTree.dir/main.cpp.o CMakeFiles/QuadTree.dir/Object.cpp.o | /Library/Frameworks/SDL2.framework/SDL2
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.6
   LINK_LIBRARIES = -Wl,-rpath,/Library/Frameworks  /Library/Frameworks/SDL2.framework/SDL2
   OBJECT_DIR = CMakeFiles/QuadTree.dir

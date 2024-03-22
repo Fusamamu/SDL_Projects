@@ -7,8 +7,18 @@ static constexpr float inf = std::numeric_limits<float>::infinity();
 
 struct BBox
 {
-    Point Min {inf, inf};
-    Point Max { -inf, -inf};
+    Point Min {  inf,  inf };
+    Point Max { -inf, -inf };
+
+    void SetMin(float _minX, float _minY)
+    {
+        Min = { _minX, _minY };
+    }
+
+    void SetMax(float _maxX, float _maxY)
+    {
+        Max = { _maxX, _maxY };
+    }
 
     BBox & operator |= (const Point& _point)
     {

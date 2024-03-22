@@ -10,8 +10,24 @@ const unsigned int SCREEN_HEIGHT = 600;
 const int PADDING = 50;
 const SDL_Rect SORT_FRAME { PADDING, PADDING, SCREEN_WIDTH - 2 * PADDING, SCREEN_HEIGHT - 2 * PADDING };
 
-const size_t DATA_COUNT = 10;
+const size_t DATA_COUNT = 100;
 const int COLUMN_WIDTH = SORT_FRAME.w / static_cast<int>(DATA_COUNT);
+
+typedef struct Color {
+    Uint8 r;
+    Uint8 g;
+    Uint8 b;
+    Uint8 a;
+} Color;
+
+Color RED     = {255, 0, 0, 255};
+Color GREEN   = {0, 255, 0, 255};
+Color BLUE    = {0, 0, 255, 255};
+Color BLACK   = {0, 0, 0, 255};
+Color WHITE   = {255, 255, 255, 255};
+Color YELLOW  = {255, 255, 0, 255};
+Color CYAN    = {0, 255, 255, 255};
+Color MAGENTA = {255, 0, 255, 255};
 
 std::vector<int> GenerateRandomSequence(int _length)
 {
@@ -60,35 +76,36 @@ void InsertionSort(std::vector<int>& _arr)
     }
 }
 
-void Sort(std::vector<int>& _arr, int& _i, int& _j, int& _key)
+void Sort(std::vector<int>& _arr, int& _i, int& _j, int& _key, bool& _isSorting)
 {
-    if(_i >= _arr.size())
-        return;
-
-    if(_key != _arr[_i])
+    if(_i != _arr.size())
     {
-        _key = _arr[_i];
-        _j = _i - 1;
+        if(!_isSorting)
+        {
+            _key = _arr[_i];
+            _j = _i - 1;
+
+            _isSorting = true;
+        }
+
+        if(_j >= 0 && _arr[_j] > _key)
+        {
+            _arr[_j+1] = _arr[_j];
+            _j--;
+        }
+        else
+        {
+            _arr[_j+1] = _key;
+            _i++;
+            _isSorting = false;
+        }
     }
-
-    if(_j >= 0 && _arr[_j] > _key)
-    {
-        _arr[_j+1] = _arr[_j];
-        _j--;
-        return;
-    }
-
-    _arr[_j+1] = _key;
-
-    _i++;
-    _j = 0;
-    _key = -1;
 }
 
-void DrawDataGraph(SDL_Renderer* _render, int x, int y, int _dataSize)
+void DrawDataGraph(SDL_Renderer* _render, int x, int y, int _dataSize, const Color& _color)
 {
     SDL_Rect _rect {x, y, COLUMN_WIDTH, _dataSize };
-    SDL_SetRenderDrawColor(_render, 255, 255, 255, 255);
+    SDL_SetRenderDrawColor(_render, _color.r, _color.g, _color.b, _color.a);
     SDL_RenderFillRect(_render, &_rect);
 }
 
@@ -105,7 +122,8 @@ void DrawGraph(SDL_Renderer* _render, const std::vector<int>& _sequences)
         DrawDataGraph(_render,
                       _offsetX + _i * COLUMN_WIDTH,
                       _offsetY - _columnHeight,
-                      _columnHeight);
+                      _columnHeight,
+                      WHITE);
     }
 }
 
@@ -138,16 +156,12 @@ int main()
     SDL_Event _event;
 
     bool _isRunning = true;
-
     int _i = 1;
     int _j = 0;
     int _key = -1;
+    bool _isSorting = false;
 
     std::vector<int> _sequences = GenerateShuffleNumbers(DATA_COUNT);
-
-    for(auto& _i : _sequences){
-        std::cout << _i << ", ";
-    }
 
     while(_isRunning)
     {
@@ -165,12 +179,7 @@ int main()
             }
         }
 
-        Sort(_sequences, _i, _j, _key);
-
-        for(auto& _i : _sequences){
-            std::cout << _i << ", ";
-        }
-        std::cout << '\n';
+        Sort(_sequences, _i, _j, _key, _isSorting);
 
         SDL_SetRenderDrawColor(_render, 0, 0, 0, 255);
         SDL_RenderClear(_render);
@@ -181,15 +190,23 @@ int main()
         int _offsetX = SORT_FRAME.x;
         int _offsetY = SORT_FRAME.y + SORT_FRAME.h;
 
-        for(int _i = 0; _i < _sequences.size(); ++_i)
+        for(int _k = 0; _k < _sequences.size(); ++_k)
         {
-            float _percent = (float)_sequences[_i] / 100.f;
+            float _percent = (float)_sequences[_k] / 100.f;
             int _columnHeight = static_cast<int>(_percent * (float)SORT_FRAME.h);
 
+            Color _color = WHITE;
+
+            if(_k == _j)
+                _color = YELLOW;
+            else if(_k == _i)
+                _color = BLUE;
+
             DrawDataGraph(_render,
-                          _offsetX + _i * COLUMN_WIDTH,
+                          _offsetX + _k * COLUMN_WIDTH,
                           _offsetY - _columnHeight,
-                          _columnHeight);
+                          _columnHeight,
+                          _color);
         }
 
         SDL_RenderPresent(_render);

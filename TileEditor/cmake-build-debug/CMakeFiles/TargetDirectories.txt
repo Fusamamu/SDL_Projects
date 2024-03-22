@@ -1,0 +1,3 @@
+/Users/pengaki/Desktop/SDL_Projects/TileEditor/cmake-build-debug/CMakeFiles/TileEditor.dir
+/Users/pengaki/Desktop/SDL_Projects/TileEditor/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/pengaki/Desktop/SDL_Projects/TileEditor/cmake-build-debug/CMakeFiles/rebuild_cache.dir
