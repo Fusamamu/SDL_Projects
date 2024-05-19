@@ -1,0 +1,10 @@
+# ninja log v5
+0	12	0	clean	e625fed40095271c
+16	554	1714325257722565610	CMakeFiles/Voronoi.dir/Time.cpp.o	516775e1afd2c4cd
+1	104	1714831398734368251	build.ninja	300a654926cdf6b3
+7	440	1714325452347493629	CMakeFiles/Voronoi.dir/Timer.cpp.o	e3951eb0f8bed52d
+19	1212	1714810460175728228	CMakeFiles/Voronoi.dir/main.cpp.o	3c7e1a55294a8173
+21	909	1714810459876268138	CMakeFiles/Voronoi.dir/Vector2.cpp.o	79014b8f8500ee4e
+20	840	1714810459806432456	CMakeFiles/Voronoi.dir/Application.cpp.o	a3746710b9080dac
+1598	4420	1714810463393317093	Voronoi	b5f1b4d2d2b0f87c
+841	1598	1714810460567771963	CMakeFiles/Voronoi.dir/VoronoiDiagram.cpp.o	694b21f4b5614bb

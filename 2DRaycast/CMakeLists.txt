@@ -7,6 +7,7 @@ set(SDL2_LIB "/Library/Frameworks/SDL2.framework/SDL2")
 
 find_package(SDL2 REQUIRED COMPONENTS SDL2)
 
+
 include_directories(2DRaycast "/Library/Frameworks/SDL2.framework")
 
 add_executable(
