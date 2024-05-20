@@ -12,6 +12,7 @@ class GameObject
 {
 public:
     std::string ID;
+    std::string Name;
 
     int Layer;
 

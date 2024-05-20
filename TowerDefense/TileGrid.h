@@ -21,6 +21,8 @@ public:
     Tile* GetTile(int _rowIdx, int _columnIdx);
     std::vector<Tile*> GetNeighbors(Tile* _tile);
 
+    void LoadMap(const char* _mapData);
+
     unsigned int GetTotalWidth() const;
     unsigned int GetTotalHeight() const;
 

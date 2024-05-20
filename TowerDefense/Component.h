@@ -30,10 +30,9 @@ public:
 class RendererComponent : public Component
 {
 public:
+    bool FlipVertical;
     bool UsePrimitive;
     bool RenderBound;
-
-    TransformComponent* Transform;
 
     SDL_Renderer* Render;
     SDL_Color Color;
@@ -46,6 +45,27 @@ public:
     explicit RendererComponent();
     void Init() override;
     void Update() override;
+};
+
+class SpriteAnimationComponent: public Component
+{
+public:
+    int ClipIndex;
+    int SheetRowCount;
+    int SheetColumnCount;
+    int SrcWidth;
+    int SrcHeight;
+
+    float AnimationSpeed;
+    float Elapsed;
+public:
+    explicit SpriteAnimationComponent();
+    void Init() override;
+    void Update() override;
+
+    void SetSheetDimension(int _row, int _column);
+    void StartAnimation();
+    void StopAnimation();
 };
 
 class FollowPathComponent: public Component

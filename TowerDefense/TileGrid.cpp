@@ -1,8 +1,35 @@
+#include <iostream>
+#include <queue>
+#include <unordered_map>
+#include <thread>
+#include <chrono>
 #include "TileGrid.h"
 #include "Application.h"
-#include <queue>
-#include <iostream>
-#include <unordered_map>
+
+const char* MAP_1 =
+        "- - - - - - - - - - - - - - - - - - - - - - - - - -\n"
+        "- - - - - - - - - - - - - - - - - - - - - - - - - -\n"
+        "o o o o o o o o o o o o o o o - - - - - - - - - - -\n"
+        "- - - - - - - - - - - - - - - - - - - - - - - - - -\n"
+        "- - - - - - - - - - - - - - - - - - - - - - - - - -\n"
+        "- - - o - - - - - - o o o o o o o o o o o o o o - -\n"
+        "- - - o - - - - - - - - - - - - - - - - - - - - - -\n"
+        "- - - o o o o o o o o o o o o o o o - - - - - - - -\n"
+        "- - - o - - - - - - - - - - - - - - - - - - - - - -\n"
+        "- - - - - - - - - - - - - - - - - - - - - - - - - -\n"
+        "- - - - o o o o o o o o o o o o o o o - - - - - - -\n"
+        "- - - - - - - - o - - - - - - - - - - - - - - - - -\n"
+        "- - - - - - - - o - - - - - - - - - - - - - - - - -\n"
+        "- - - - - - - - - - - - - - - - - - - - - - - - - -\n"
+        "- - - o o o o o - - - - - - o - - - - - - - - - - -\n"
+        "- - - - - - - - - - - - - - o - - - - - - - - - - -\n"
+        "- - - - - - - - - o o o o o o o o o o o o o - - - -\n"
+        "- - - - - - - - - - - - - - - - - - - - - - - - - -\n"
+        "- - - - - - o - - - - - - - - - - - - - - - - - - -\n"
+        "- - - - - - o - - - - - - - - - - - - - - - - - - -\n"
+        "- - - - - - o - - - - - - - o o o o o o o - - - - -\n"
+        "- - - - - - o - - - - - - - - - - - - - - - - - - -\n"
+        "- - - - - - o - - - - - - - - - - - - - - - - - - -\n";
 
 TileGrid::TileGrid()
 {
@@ -13,46 +40,151 @@ TileGrid::TileGrid(std::size_t  _rowCount, std::size_t _columnCount):
 RowCount(_rowCount),
 ColumnCount(_columnCount),
 Tiles(_rowCount * _columnCount),
-TileUnitSize(64)
+TileUnitSize(32)
 {
-    Application& _app = Application::GetInstance();
-
-    for(std::size_t _i = 0; _i < RowCount; ++_i)
-        for(std::size_t _j = 0; _j < ColumnCount; ++_j)
-        {
-            Tile* _tile = new Tile();
-
-            _tile->RowIdx    = _i;
-            _tile->ColumnIdx = _j;
-
-            int _targetPosY = _i * TileUnitSize + _app.SCREEN_HEIGHT / 2 - GetTotalHeight()/2;
-            int _targetPosX = _j * TileUnitSize + _app.SCREEN_WIDTH / 2 - GetTotalWidth()/2;
-
-            _tile->Object = new GameObject();
-            _tile->Object->Transform->Position.x = static_cast<float>(_targetPosX);
-            _tile->Object->Transform->Position.y = static_cast<float>(_targetPosY);
-
-            _tile->Object->Renderer->Texture = _app.GetTexture("TileSet");
-            _tile->Object->Renderer->Src = { 0, 0, 128, 128 };
-            _tile->Object->Renderer->Dest = {
-                    _targetPosX,
-                    _targetPosY,
-                    TileUnitSize,
-                    TileUnitSize};
-
-            _tile->Object->Renderer->UsePrimitive = true;
-            _tile->Object->Renderer->Color = { 20, 20, 20, 100 };
-
-            _tile->Object->Renderer->RenderBound = true;
-            _tile->Object->Renderer->BoundColor = { 100, 100, 100, 100};
-
-            Tiles[_i * RowCount + _j] = _tile;
-        }
+    LoadMap(MAP_1);
 }
 
 TileGrid::~TileGrid()
 {
     Tiles.clear();
+}
+
+void TileGrid::LoadMap(const char* _mapData)
+{
+    bool _completeFirstLine = false;
+
+    int _rowCount    = 0;
+    int _columnCount = 0;
+
+    const char* _current = _mapData;
+
+    while(*_current != '\0')
+    {
+        if(!_completeFirstLine)
+        {
+            if(*_current != ' ' && *_current != '\n')
+                _columnCount++;
+
+            if(*_current == '\n')
+                _completeFirstLine = true;
+        }
+
+        if(*_current == '\n')
+            _rowCount++;
+
+        _current++;
+    }
+
+    Tiles.clear();
+    Tiles.reserve(_rowCount * _columnCount);
+
+    RowCount    = _rowCount;
+    ColumnCount = _columnCount;
+
+    const char* _tempMap = _mapData;
+
+    Application& _app = Application::GetInstance();
+
+    std::size_t _i = 0;
+    std::size_t _j = 0;
+
+    while(*_tempMap != '\0')
+    {
+        if(*_tempMap == ' ')
+        {
+            _tempMap++;
+            continue;
+        }
+
+        if(*_tempMap == '\n')
+        {
+            _i++;
+            if(_i > _rowCount - 1)
+                _i = _rowCount - 1;
+            _j = 0;
+
+            _tempMap++;
+            continue;
+        }
+
+        Tile* _tile = new Tile();
+
+        _tile->RowIdx    = _i;
+        _tile->ColumnIdx = _j;
+
+        int _targetPosY = _i * TileUnitSize + _app.SCREEN_HEIGHT / 2 - GetTotalHeight()/2;
+        int _targetPosX = _j * TileUnitSize + _app.SCREEN_WIDTH / 2 - GetTotalWidth()/2;
+
+        _tile->Object = new GameObject();
+        _tile->Object->Transform->Position.x = static_cast<float>(_targetPosX);
+        _tile->Object->Transform->Position.y = static_cast<float>(_targetPosY);
+
+        _tile->Object->Renderer->Texture = _app.GetTexture("TileSet");
+
+        if(*_tempMap == '-')
+            _tile->Object->Renderer->Src = { 5 * 32, 3 * 32 , 32, 32 };
+        if(*_tempMap == 'o')
+        {
+            _tile->IsWalkable = false;
+            _tile->Object->Renderer->Src = { 5 * 32, 4 * 32 , 32, 32 };
+        }
+
+        _tile->Object->Renderer->Dest = {
+                _targetPosX,
+                _targetPosY,
+                TileUnitSize,
+                TileUnitSize};
+
+
+        if(*_tempMap == '-')
+            _tile->Object->Renderer->Color = { 20, 20, 20, 100 };
+        if(*_tempMap == 'o')
+        {
+            _tile->IsWalkable = false;
+            _tile->Object->Renderer->Color = { 255, 255, 255, SDL_ALPHA_OPAQUE };
+        }
+
+
+        Tiles[_i * RowCount + _j] = _tile;
+
+        _j++;
+        if(_j > _columnCount - 1)
+            _j = _columnCount - 1;
+        _tempMap++;
+    }
+
+//    for(std::size_t _i = 0; _i < RowCount; ++_i)
+//        for(std::size_t _j = 0; _j < ColumnCount; ++_j)
+//        {
+//            Tile* _tile = new Tile();
+//
+//            _tile->RowIdx    = _i;
+//            _tile->ColumnIdx = _j;
+//
+//            int _targetPosY = _i * TileUnitSize + _app.SCREEN_HEIGHT / 2 - GetTotalHeight()/2;
+//            int _targetPosX = _j * TileUnitSize + _app.SCREEN_WIDTH / 2 - GetTotalWidth()/2;
+//
+//            _tile->Object = new GameObject();
+//            _tile->Object->Transform->Position.x = static_cast<float>(_targetPosX);
+//            _tile->Object->Transform->Position.y = static_cast<float>(_targetPosY);
+//
+//            _tile->Object->Renderer->Texture = _app.GetTexture("TileSet");
+//            _tile->Object->Renderer->Src = { 0, 0, 128, 128 };
+//            _tile->Object->Renderer->Dest = {
+//                    _targetPosX,
+//                    _targetPosY,
+//                    TileUnitSize,
+//                    TileUnitSize};
+//
+//            _tile->Object->Renderer->UsePrimitive = true;
+//            _tile->Object->Renderer->Color = { 20, 20, 20, 100 };
+//
+//            _tile->Object->Renderer->RenderBound = true;
+//            _tile->Object->Renderer->BoundColor = { 100, 100, 100, 100};
+//
+//            Tiles[_i * RowCount + _j] = _tile;
+//        }
 }
 
 Tile* TileGrid::GetTile(int _rowIdx, int _columnIdx)

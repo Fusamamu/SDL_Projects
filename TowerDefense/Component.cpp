@@ -20,6 +20,7 @@ void TransformComponent::Update()
 }
 
 RendererComponent::RendererComponent():
+        FlipVertical(false),
         Render(nullptr),
         UsePrimitive(false),
         RenderBound(false)
@@ -29,11 +30,12 @@ RendererComponent::RendererComponent():
 
 void RendererComponent::Init()
 {
-     Transform = Owner->GetComponent<TransformComponent>();
 }
 
 void RendererComponent::Update()
 {
+    auto* Transform = Owner->Transform;
+
     Dest.x = static_cast<int>(Transform->Position.x);
     Dest.y = static_cast<int>(Transform->Position.y);
     Dest.w *= static_cast<int>(Transform->ScaleX);
@@ -46,13 +48,65 @@ void RendererComponent::Update()
     }
     else
     {
-        SDL_RenderCopy(Render, Texture, &Src, &Dest);
+        SDL_Point center { 0, 0 };
+        if(!FlipVertical)
+            SDL_RenderCopy(Render, Texture, &Src, &Dest);
+        else
+            SDL_RenderCopyEx(Render, Texture, &Src, &Dest, 0, &center, SDL_FLIP_HORIZONTAL);
     }
 
     if(RenderBound)
     {
         SDL_SetRenderDrawColor(Render, BoundColor.r, BoundColor.g, BoundColor.b, SDL_ALPHA_OPAQUE);
         SDL_RenderDrawRect(Render, &Dest);
+    }
+}
+
+SpriteAnimationComponent::SpriteAnimationComponent():
+AnimationSpeed(1),
+Elapsed(0)
+{
+}
+
+void SpriteAnimationComponent::Init()
+{
+    SDL_Texture* _texture = Owner->Renderer->Texture;
+    if(_texture)
+    {
+        int textureWidth  = 0;
+        int textureHeight = 0;
+        SDL_QueryTexture(_texture, nullptr, nullptr, &textureWidth, &textureHeight);
+    }
+}
+
+void SpriteAnimationComponent::SetSheetDimension(int _row, int _column)
+{
+    SheetRowCount    = _row;
+    SheetColumnCount = _column;
+
+    SDL_Texture* _texture = Owner->Renderer->Texture;
+    if(_texture)
+    {
+        int _textureWidth  = 0;
+        int _textureHeight = 0;
+        SDL_QueryTexture(_texture, nullptr, nullptr, &_textureWidth, &_textureHeight);
+
+        SrcWidth  = _textureWidth / _column;
+        SrcHeight = _textureHeight/ _row;
+    }
+}
+
+void SpriteAnimationComponent::Update()
+{
+    Elapsed += Timer::GetInstance().DeltaTime * AnimationSpeed;
+    if(Elapsed >= 1.0f)
+    {
+        ClipIndex++;
+        if(ClipIndex >= SheetColumnCount)
+            ClipIndex = 0;
+
+        Owner->Renderer->Src.x = ClipIndex * SrcWidth;
+        Elapsed = 0.0f;
     }
 }
 
@@ -88,6 +142,8 @@ void FollowPathComponent::Update()
     Vector2 _targetPos = _currentTile->GetPosition();
 
     Vector2 _dir = (_targetPos - _startPos).GetNorm();
+
+    Owner->Renderer->FlipVertical = _dir.x > 0;
 
     if(_startPos.GetDistance(_targetPos) > 0.5f)
     {

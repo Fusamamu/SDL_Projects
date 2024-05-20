@@ -12,6 +12,8 @@ Application::Application():
         return;
     }
 
+    SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "0");
+
     Window = SDL_CreateWindow
             (
                     "Tower Defense",
@@ -25,7 +27,9 @@ Application::Application():
 
     Renderer = SDL_CreateRenderer(Window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
-    LoadTexture("TileSet", "../Resource/Textures/TileSet.png");
+    LoadTexture("TileSet", "../Resource/Textures/FieldsTileset.png");
+    LoadTexture("OrcWalk", "../Resource/Textures/free-field-enemies-pixel-art-for-tower-defense/2/S_Walk.png");
+    LoadTexture("Tower"  , "../Resource/Textures/free-archer-towers-pixel-art-for-tower-defense/2 Idle/7.png");
 
     ObjectLayers =
             {
@@ -50,23 +54,44 @@ void Application::Start()
 void Application::Update()
 {
     Tile* _start = Grid->GetTile(0, 0);
-    Tile* _end   = Grid->GetTile(3, 3);
+    Tile* _end   = Grid->GetTile(15, 10);
     std::vector<Tile*> _path = TileGrid::GetAStarPath(*Grid, _start, _end);
 
     for(Tile* _tile : _path)
         _tile->Object->Renderer->Color = { 255, 0, 0, SDL_ALPHA_OPAQUE };
 
-    auto* _object = new GameObject();
+    auto* _enemy = new GameObject();
+    _enemy->Name = "Orc";
 
-    _object->SetLayer(1);
-    _object->Transform->Position.x = Grid->GetTile(0, 0)->Object->Transform->Position.x;
-    _object->Transform->Position.y = Grid->GetTile(0, 0)->Object->Transform->Position.y;
-    _object->Renderer->UsePrimitive = true;
-    _object->Renderer->Dest  = { 0, 0, 64, 64 };
-    _object->Renderer->Color = { 0, 255, 0, SDL_ALPHA_OPAQUE };
+    _enemy->Renderer->Texture = GetTexture("OrcWalk");
+    _enemy->Renderer->Src  = {0, 0, 48, 48 };
+    _enemy->Renderer->Dest = {0, 0, 48, 48 };
+    _enemy->Renderer->FlipVertical = true;
 
-    auto* _followComp = _object->AddComponent<FollowPathComponent>();
+    _enemy->SetLayer(1);
+    _enemy->Transform->Position.x = Grid->GetTile(0, 0)->Object->Transform->Position.x;
+    _enemy->Transform->Position.y = Grid->GetTile(0, 0)->Object->Transform->Position.y;
+
+    auto* _followComp = _enemy->AddComponent<FollowPathComponent>();
     _followComp->SetTargetPath(_path);
+
+    auto* _spriteAnimation = _enemy->AddComponent<SpriteAnimationComponent>();
+    _spriteAnimation->SetSheetDimension(1, 6);
+    _spriteAnimation->AnimationSpeed = 25;
+
+    auto* _tower = new GameObject();
+    _tower->Name = "Tower";
+    _tower->Renderer->Texture = GetTexture("Tower");
+    _tower->Renderer->Src = { 0, 0, 70, 130 };
+    _tower->Renderer->Dest= { 0, 0, 70, 130 };
+
+    _tower->SetLayer(1);
+    _tower->Transform->Position.x = 500;
+    _tower->Transform->Position.y = 500;
+
+    auto* _towerSpriteAnimation = _tower->AddComponent<SpriteAnimationComponent>();
+    _towerSpriteAnimation->SetSheetDimension(1, 6);
+    _towerSpriteAnimation->AnimationSpeed = 10;
 
     while(m_IsRunning)
     {
@@ -86,7 +111,8 @@ void Application::Update()
             }
         }
 
-        _object->GetComponent<FollowPathComponent>()->Update();
+        for(auto& _gameObj : GameObjects)
+            _gameObj.second->UpdateComponents();
 
         SDL_SetRenderDrawColor(Renderer, 0, 0, 0, 0);
         SDL_RenderClear(Renderer);
