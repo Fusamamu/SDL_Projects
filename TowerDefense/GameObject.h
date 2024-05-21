@@ -7,6 +7,7 @@
 #include "Component.h"
 
 class Application;
+class Scene;
 
 class GameObject
 {
@@ -16,9 +17,12 @@ public:
 
     int Layer;
 
+    Scene* OwnScene;
+
     TransformComponent* Transform;
     RendererComponent*  Renderer;
 public:
+    GameObject(const std::string& _name, Scene* _scene);
     GameObject();
     ~GameObject();
 

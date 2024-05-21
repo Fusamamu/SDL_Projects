@@ -1,12 +1,16 @@
 #include "GameObject.h"
-#include "Application.h"
 
-GameObject::GameObject():
+#include <utility>
+#include "Application.h"
+#include "Scene.h"
+
+GameObject::GameObject(const std::string& _name, Scene* _scene):
 Layer(0),
 Transform(nullptr),
-Renderer(nullptr)
+Renderer(nullptr),
+OwnScene(_scene)
 {
-    auto& _app = Application::GetInstance();
+    Name = _name;
 
     Transform = AddComponent<TransformComponent>();
     Renderer  = AddComponent<RendererComponent>();
@@ -14,31 +18,24 @@ Renderer(nullptr)
     Transform->Position.x = 0;
     Transform->Position.y = 0;
 
-    Renderer->Render = _app.Renderer;
+    Renderer->Render = Application::GetInstance().Renderer;
 
-    ID = _app.GenerateUUID();
+    OwnScene->AddGameObject(this);
+}
 
-    auto _iter = _app.GameObjects.find(ID);
-    if(_iter == _app.GameObjects.end())
-        _app.GameObjects[ID] = this;
+GameObject::GameObject()
+{
 
-    _app.AddToLayer(this);
 }
 
 GameObject::~GameObject()
 {
-    auto& _app = Application::GetInstance();
-    auto _iter = _app.GameObjects.find(ID);
-    if(_iter != _app.GameObjects.end())
-        _app.GameObjects.erase(_iter);
-
-    _app.RemoveFromLayer(this);
+    OwnScene->RemoveGameObject(this);
 }
 
 void GameObject::SetLayer(int _layer)
 {
     Layer = _layer;
-    Application::GetInstance().AddToLayer(this);
 }
 
 void GameObject::UpdateComponents()

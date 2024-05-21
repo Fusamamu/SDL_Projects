@@ -6,32 +6,33 @@
 #include "TileGrid.h"
 #include "Application.h"
 
-const char* MAP_1 =
-        "- - - - - - - - - - - - - - - - - - - - - - - - - -\n"
-        "- - - - - - - - - - - - - - - - - - - - - - - - - -\n"
-        "o o o o o o o o o o o o o o o - - - - - - - - - - -\n"
-        "- - - - - - - - - - - - - - - - - - - - - - - - - -\n"
-        "- - - - - - - - - - - - - - - - - - - - - - - - - -\n"
-        "- - - o - - - - - - o o o o o o o o o o o o o o - -\n"
-        "- - - o - - - - - - - - - - - - - - - - - - - - - -\n"
-        "- - - o o o o o o o o o o o o o o o - - - - - - - -\n"
-        "- - - o - - - - - - - - - - - - - - - - - - - - - -\n"
-        "- - - - - - - - - - - - - - - - - - - - - - - - - -\n"
-        "- - - - o o o o o o o o o o o o o o o - - - - - - -\n"
-        "- - - - - - - - o - - - - - - - - - - - - - - - - -\n"
-        "- - - - - - - - o - - - - - - - - - - - - - - - - -\n"
-        "- - - - - - - - - - - - - - - - - - - - - - - - - -\n"
-        "- - - o o o o o - - - - - - o - - - - - - - - - - -\n"
-        "- - - - - - - - - - - - - - o - - - - - - - - - - -\n"
-        "- - - - - - - - - o o o o o o o o o o o o o - - - -\n"
-        "- - - - - - - - - - - - - - - - - - - - - - - - - -\n"
-        "- - - - - - o - - - - - - - - - - - - - - - - - - -\n"
-        "- - - - - - o - - - - - - - - - - - - - - - - - - -\n"
-        "- - - - - - o - - - - - - - o o o o o o o - - - - -\n"
-        "- - - - - - o - - - - - - - - - - - - - - - - - - -\n"
-        "- - - - - - o - - - - - - - - - - - - - - - - - - -\n";
+//const char* MAP_1 =
+//        "- - - - - - - - - - - - - - - - - - - - - - - - - -\n"
+//        "- - - - - - - - - - - - - - - - - - - - - - - - - -\n"
+//        "o o o o o o o o o o o o o o o - - - - - - - - - - -\n"
+//        "- - - - - - - - - - - - - - - - - - - - - - - - - -\n"
+//        "- - - - - - - - - - - - - - - - - - - - - - - - - -\n"
+//        "- - - o - - - - - - o o o o o o o o o o o o o o - -\n"
+//        "- - - o - - - - - - - - - - - - - - - - - - - - - -\n"
+//        "- - - o o o o o o o o o o o o o o o - - - - - - - -\n"
+//        "- - - o - - - - - - - - - - - - - - - - - - - - - -\n"
+//        "- - - - - - - - - - - - - - - - - - - - - - - - - -\n"
+//        "- - - - o o o o o o o o o o o o o o o - - - - - - -\n"
+//        "- - - - - - - - o - - - - - - - - - - - - - - - - -\n"
+//        "- - - - - - - - o - - - - - - - - - - - - - - - - -\n"
+//        "- - - - - - - - - - - - - - - - - - - - - - - - - -\n"
+//        "- - - o o o o o - - - - - - o - - - - - - - - - - -\n"
+//        "- - - - - - - - - - - - - - o - - - - - - - - - - -\n"
+//        "- - - - - - - - - o o o o o o o o o o o o o - - - -\n"
+//        "- - - - - - - - - - - - - - - - - - - - - - - - - -\n"
+//        "- - - - - - o - - - - - - - - - - - - - - - - - - -\n"
+//        "- - - - - - o - - - - - - - - - - - - - - - - - - -\n"
+//        "- - - - - - o - - - - - - - o o o o o o o - - - - -\n"
+//        "- - - - - - o - - - - - - - - - - - - - - - - - - -\n"
+//        "- - - - - - o - - - - - - - - - - - - - - - - - - -\n";
 
-TileGrid::TileGrid()
+TileGrid::TileGrid():
+TileUnitSize(32)
 {
 
 }
@@ -42,7 +43,7 @@ ColumnCount(_columnCount),
 Tiles(_rowCount * _columnCount),
 TileUnitSize(32)
 {
-    LoadMap(MAP_1);
+    //LoadMap(MAP_1);
 }
 
 TileGrid::~TileGrid()
@@ -50,7 +51,7 @@ TileGrid::~TileGrid()
     Tiles.clear();
 }
 
-void TileGrid::LoadMap(const char* _mapData)
+void TileGrid::LoadMap(const char* _mapData, Scene* _scene)
 {
     bool _completeFirstLine = false;
 
@@ -114,9 +115,9 @@ void TileGrid::LoadMap(const char* _mapData)
         _tile->ColumnIdx = _j;
 
         int _targetPosY = _i * TileUnitSize + _app.SCREEN_HEIGHT / 2 - GetTotalHeight()/2;
-        int _targetPosX = _j * TileUnitSize + _app.SCREEN_WIDTH / 2 - GetTotalWidth()/2;
+        int _targetPosX = _j * TileUnitSize + _app.SCREEN_WIDTH / 2  - GetTotalWidth() /2;
 
-        _tile->Object = new GameObject();
+        _tile->Object = new GameObject("Tile", _scene);
         _tile->Object->Transform->Position.x = static_cast<float>(_targetPosX);
         _tile->Object->Transform->Position.y = static_cast<float>(_targetPosY);
 
@@ -136,16 +137,6 @@ void TileGrid::LoadMap(const char* _mapData)
                 TileUnitSize,
                 TileUnitSize};
 
-
-        if(*_tempMap == '-')
-            _tile->Object->Renderer->Color = { 20, 20, 20, 100 };
-        if(*_tempMap == 'o')
-        {
-            _tile->IsWalkable = false;
-            _tile->Object->Renderer->Color = { 255, 255, 255, SDL_ALPHA_OPAQUE };
-        }
-
-
         Tiles[_i * RowCount + _j] = _tile;
 
         _j++;
@@ -153,38 +144,6 @@ void TileGrid::LoadMap(const char* _mapData)
             _j = _columnCount - 1;
         _tempMap++;
     }
-
-//    for(std::size_t _i = 0; _i < RowCount; ++_i)
-//        for(std::size_t _j = 0; _j < ColumnCount; ++_j)
-//        {
-//            Tile* _tile = new Tile();
-//
-//            _tile->RowIdx    = _i;
-//            _tile->ColumnIdx = _j;
-//
-//            int _targetPosY = _i * TileUnitSize + _app.SCREEN_HEIGHT / 2 - GetTotalHeight()/2;
-//            int _targetPosX = _j * TileUnitSize + _app.SCREEN_WIDTH / 2 - GetTotalWidth()/2;
-//
-//            _tile->Object = new GameObject();
-//            _tile->Object->Transform->Position.x = static_cast<float>(_targetPosX);
-//            _tile->Object->Transform->Position.y = static_cast<float>(_targetPosY);
-//
-//            _tile->Object->Renderer->Texture = _app.GetTexture("TileSet");
-//            _tile->Object->Renderer->Src = { 0, 0, 128, 128 };
-//            _tile->Object->Renderer->Dest = {
-//                    _targetPosX,
-//                    _targetPosY,
-//                    TileUnitSize,
-//                    TileUnitSize};
-//
-//            _tile->Object->Renderer->UsePrimitive = true;
-//            _tile->Object->Renderer->Color = { 20, 20, 20, 100 };
-//
-//            _tile->Object->Renderer->RenderBound = true;
-//            _tile->Object->Renderer->BoundColor = { 100, 100, 100, 100};
-//
-//            Tiles[_i * RowCount + _j] = _tile;
-//        }
 }
 
 Tile* TileGrid::GetTile(int _rowIdx, int _columnIdx)

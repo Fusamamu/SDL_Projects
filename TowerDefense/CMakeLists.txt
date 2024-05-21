@@ -23,7 +23,14 @@ add_executable(${PROJECT_NAME} main.cpp
         Timer.h
         Timer.cpp
         Vector2.h
-        Vector2.cpp)
+        Vector2.cpp
+        Scene.h
+        Scene.h
+        Scene.cpp
+        GameplayScene.h
+        GameplayScene.cpp
+        SceneManager.h
+        SceneManager.cpp)
 
 target_include_directories(${PROJECT_NAME} PUBLIC "/Library/Frameworks/SDL2.framework")
 target_include_directories(${PROJECT_NAME} PUBLIC "/Library/Frameworks/SDL2_image.framework")

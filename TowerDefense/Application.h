@@ -10,6 +10,7 @@
 #include "Tile.h"
 #include "TileGrid.h"
 #include "Timer.h"
+#include "SceneManager.h"
 
 class Application
 {
@@ -18,13 +19,7 @@ public:
     SDL_Window* Window;
     SDL_Renderer* Renderer;
 
-    std::unordered_map<std::string, GameObject*> GameObjects;
     std::unordered_map<std::string, SDL_Texture*> Textures;
-
-    std::map<int, std::vector<GameObject*>> ObjectLayers;
-
-    TileGrid* Grid;
-
     const unsigned int SCREEN_WIDTH  = 1600;
     const unsigned int SCREEN_HEIGHT = 900;
 public:
@@ -43,9 +38,6 @@ public:
     void Start();
     void Update();
     void Quit();
-
-    void AddToLayer     (GameObject* _gameObject);
-    void RemoveFromLayer(GameObject* _gameObject);
 
     std::string GenerateUUID();
 
