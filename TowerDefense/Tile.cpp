@@ -1,5 +1,5 @@
 #include <iostream>
-#include "GameObject.h"
+#include "include/GameObject.h"
 #include "Tile.h"
 
 Tile::Tile():

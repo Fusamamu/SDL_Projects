@@ -1,6 +1,7 @@
 #pragma once
 #include "Scene.h"
 #include "TileGrid.h"
+#include "ObjectFactory.h"
 
 class GameplayScene : public Scene
 {

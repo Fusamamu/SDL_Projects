@@ -1118,6 +1118,18 @@
 			"value" : "FALSE"
 		},
 		{
+			"name" : "SDL2TTF_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "The directory containing a CMake configuration file for SDL2TTF."
+				}
+			],
+			"type" : "PATH",
+			"value" : "SDL2TTF_DIR-NOTFOUND"
+		},
+		{
 			"name" : "SDL2_DIR",
 			"properties" : 
 			[
@@ -1140,6 +1152,42 @@
 			],
 			"type" : "PATH",
 			"value" : "/Library/Frameworks/SDL2_image.framework/Resources/CMake"
+		},
+		{
+			"name" : "SDL2_ttf_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "The directory containing a CMake configuration file for SDL2_ttf."
+				}
+			],
+			"type" : "PATH",
+			"value" : "/usr/local/lib/cmake/SDL2_ttf"
+		},
+		{
+			"name" : "SDL_TTF_INCLUDE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a file."
+				}
+			],
+			"type" : "PATH",
+			"value" : "SDL_TTF_INCLUDE_DIR-NOTFOUND"
+		},
+		{
+			"name" : "SDL_TTF_LIBRARY",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a library."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "SDL_TTF_LIBRARY-NOTFOUND"
 		},
 		{
 			"name" : "TowerDefense_BINARY_DIR",

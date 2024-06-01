@@ -1,6 +1,7 @@
 #include "Timer.h"
-#include "Component.h"
-#include "GameObject.h"
+#include "include/Components/Component.h"
+#include "include/GameObject.h"
+#include "include/Application.h"
 
 TransformComponent::TransformComponent():
 ScaleX(1),
@@ -34,10 +35,13 @@ void RendererComponent::Init()
 
 void RendererComponent::Update()
 {
+    if(!Owner->IsActive)
+        return;
+
     auto* Transform = Owner->Transform;
 
-    Dest.x = static_cast<int>(Transform->Position.x);
-    Dest.y = static_cast<int>(Transform->Position.y);
+    Dest.x = static_cast<int>(Transform->Position.x - Dest.w / 2);
+    Dest.y = static_cast<int>(Transform->Position.y - Dest.h / 2);
     Dest.w *= static_cast<int>(Transform->ScaleX);
     Dest.h *= static_cast<int>(Transform->ScaleY);
 
@@ -66,6 +70,21 @@ SpriteAnimationComponent::SpriteAnimationComponent():
 AnimationSpeed(1),
 Elapsed(0)
 {
+}
+
+CircleCollider2D::CircleCollider2D()
+{
+
+}
+
+void CircleCollider2D::Init()
+{
+
+}
+
+void CircleCollider2D::Update()
+{
+
 }
 
 void SpriteAnimationComponent::Init()

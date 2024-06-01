@@ -49,80 +49,94 @@ cmake_ninja_workdir = /Users/pengaki/Desktop/SDL_Projects/TowerDefense/cmake-bui
 
 build cmake_object_order_depends_target_TowerDefense: phony || CMakeFiles/TowerDefense.dir
 
-build CMakeFiles/TowerDefense.dir/main.cpp.o: CXX_COMPILER__TowerDefense_unscanned_Debug /Users/pengaki/Desktop/SDL_Projects/TowerDefense/main.cpp || cmake_object_order_depends_target_TowerDefense
-  DEP_FILE = CMakeFiles/TowerDefense.dir/main.cpp.o.d
-  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.6 -fcolor-diagnostics
-  INCLUDES = -F/Library/Frameworks
-  OBJECT_DIR = CMakeFiles/TowerDefense.dir
-  OBJECT_FILE_DIR = CMakeFiles/TowerDefense.dir
-
 build CMakeFiles/TowerDefense.dir/Application.cpp.o: CXX_COMPILER__TowerDefense_unscanned_Debug /Users/pengaki/Desktop/SDL_Projects/TowerDefense/Application.cpp || cmake_object_order_depends_target_TowerDefense
   DEP_FILE = CMakeFiles/TowerDefense.dir/Application.cpp.o.d
   FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.6 -fcolor-diagnostics
-  INCLUDES = -F/Library/Frameworks
-  OBJECT_DIR = CMakeFiles/TowerDefense.dir
-  OBJECT_FILE_DIR = CMakeFiles/TowerDefense.dir
-
-build CMakeFiles/TowerDefense.dir/GameObject.cpp.o: CXX_COMPILER__TowerDefense_unscanned_Debug /Users/pengaki/Desktop/SDL_Projects/TowerDefense/GameObject.cpp || cmake_object_order_depends_target_TowerDefense
-  DEP_FILE = CMakeFiles/TowerDefense.dir/GameObject.cpp.o.d
-  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.6 -fcolor-diagnostics
-  INCLUDES = -F/Library/Frameworks
+  INCLUDES = -I/Users/pengaki/Desktop/SDL_Projects/TowerDefense/include -F/Library/Frameworks
   OBJECT_DIR = CMakeFiles/TowerDefense.dir
   OBJECT_FILE_DIR = CMakeFiles/TowerDefense.dir
 
 build CMakeFiles/TowerDefense.dir/Component.cpp.o: CXX_COMPILER__TowerDefense_unscanned_Debug /Users/pengaki/Desktop/SDL_Projects/TowerDefense/Component.cpp || cmake_object_order_depends_target_TowerDefense
   DEP_FILE = CMakeFiles/TowerDefense.dir/Component.cpp.o.d
   FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.6 -fcolor-diagnostics
-  INCLUDES = -F/Library/Frameworks
+  INCLUDES = -I/Users/pengaki/Desktop/SDL_Projects/TowerDefense/include -F/Library/Frameworks
   OBJECT_DIR = CMakeFiles/TowerDefense.dir
   OBJECT_FILE_DIR = CMakeFiles/TowerDefense.dir
 
-build CMakeFiles/TowerDefense.dir/Tile.cpp.o: CXX_COMPILER__TowerDefense_unscanned_Debug /Users/pengaki/Desktop/SDL_Projects/TowerDefense/Tile.cpp || cmake_object_order_depends_target_TowerDefense
-  DEP_FILE = CMakeFiles/TowerDefense.dir/Tile.cpp.o.d
+build CMakeFiles/TowerDefense.dir/GameObject.cpp.o: CXX_COMPILER__TowerDefense_unscanned_Debug /Users/pengaki/Desktop/SDL_Projects/TowerDefense/GameObject.cpp || cmake_object_order_depends_target_TowerDefense
+  DEP_FILE = CMakeFiles/TowerDefense.dir/GameObject.cpp.o.d
   FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.6 -fcolor-diagnostics
-  INCLUDES = -F/Library/Frameworks
-  OBJECT_DIR = CMakeFiles/TowerDefense.dir
-  OBJECT_FILE_DIR = CMakeFiles/TowerDefense.dir
-
-build CMakeFiles/TowerDefense.dir/TileGrid.cpp.o: CXX_COMPILER__TowerDefense_unscanned_Debug /Users/pengaki/Desktop/SDL_Projects/TowerDefense/TileGrid.cpp || cmake_object_order_depends_target_TowerDefense
-  DEP_FILE = CMakeFiles/TowerDefense.dir/TileGrid.cpp.o.d
-  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.6 -fcolor-diagnostics
-  INCLUDES = -F/Library/Frameworks
-  OBJECT_DIR = CMakeFiles/TowerDefense.dir
-  OBJECT_FILE_DIR = CMakeFiles/TowerDefense.dir
-
-build CMakeFiles/TowerDefense.dir/Timer.cpp.o: CXX_COMPILER__TowerDefense_unscanned_Debug /Users/pengaki/Desktop/SDL_Projects/TowerDefense/Timer.cpp || cmake_object_order_depends_target_TowerDefense
-  DEP_FILE = CMakeFiles/TowerDefense.dir/Timer.cpp.o.d
-  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.6 -fcolor-diagnostics
-  INCLUDES = -F/Library/Frameworks
-  OBJECT_DIR = CMakeFiles/TowerDefense.dir
-  OBJECT_FILE_DIR = CMakeFiles/TowerDefense.dir
-
-build CMakeFiles/TowerDefense.dir/Vector2.cpp.o: CXX_COMPILER__TowerDefense_unscanned_Debug /Users/pengaki/Desktop/SDL_Projects/TowerDefense/Vector2.cpp || cmake_object_order_depends_target_TowerDefense
-  DEP_FILE = CMakeFiles/TowerDefense.dir/Vector2.cpp.o.d
-  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.6 -fcolor-diagnostics
-  INCLUDES = -F/Library/Frameworks
-  OBJECT_DIR = CMakeFiles/TowerDefense.dir
-  OBJECT_FILE_DIR = CMakeFiles/TowerDefense.dir
-
-build CMakeFiles/TowerDefense.dir/Scene.cpp.o: CXX_COMPILER__TowerDefense_unscanned_Debug /Users/pengaki/Desktop/SDL_Projects/TowerDefense/Scene.cpp || cmake_object_order_depends_target_TowerDefense
-  DEP_FILE = CMakeFiles/TowerDefense.dir/Scene.cpp.o.d
-  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.6 -fcolor-diagnostics
-  INCLUDES = -F/Library/Frameworks
+  INCLUDES = -I/Users/pengaki/Desktop/SDL_Projects/TowerDefense/include -F/Library/Frameworks
   OBJECT_DIR = CMakeFiles/TowerDefense.dir
   OBJECT_FILE_DIR = CMakeFiles/TowerDefense.dir
 
 build CMakeFiles/TowerDefense.dir/GameplayScene.cpp.o: CXX_COMPILER__TowerDefense_unscanned_Debug /Users/pengaki/Desktop/SDL_Projects/TowerDefense/GameplayScene.cpp || cmake_object_order_depends_target_TowerDefense
   DEP_FILE = CMakeFiles/TowerDefense.dir/GameplayScene.cpp.o.d
   FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.6 -fcolor-diagnostics
-  INCLUDES = -F/Library/Frameworks
+  INCLUDES = -I/Users/pengaki/Desktop/SDL_Projects/TowerDefense/include -F/Library/Frameworks
+  OBJECT_DIR = CMakeFiles/TowerDefense.dir
+  OBJECT_FILE_DIR = CMakeFiles/TowerDefense.dir
+
+build CMakeFiles/TowerDefense.dir/ObjectFactory.cpp.o: CXX_COMPILER__TowerDefense_unscanned_Debug /Users/pengaki/Desktop/SDL_Projects/TowerDefense/ObjectFactory.cpp || cmake_object_order_depends_target_TowerDefense
+  DEP_FILE = CMakeFiles/TowerDefense.dir/ObjectFactory.cpp.o.d
+  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.6 -fcolor-diagnostics
+  INCLUDES = -I/Users/pengaki/Desktop/SDL_Projects/TowerDefense/include -F/Library/Frameworks
+  OBJECT_DIR = CMakeFiles/TowerDefense.dir
+  OBJECT_FILE_DIR = CMakeFiles/TowerDefense.dir
+
+build CMakeFiles/TowerDefense.dir/PoolSystem.cpp.o: CXX_COMPILER__TowerDefense_unscanned_Debug /Users/pengaki/Desktop/SDL_Projects/TowerDefense/PoolSystem.cpp || cmake_object_order_depends_target_TowerDefense
+  DEP_FILE = CMakeFiles/TowerDefense.dir/PoolSystem.cpp.o.d
+  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.6 -fcolor-diagnostics
+  INCLUDES = -I/Users/pengaki/Desktop/SDL_Projects/TowerDefense/include -F/Library/Frameworks
+  OBJECT_DIR = CMakeFiles/TowerDefense.dir
+  OBJECT_FILE_DIR = CMakeFiles/TowerDefense.dir
+
+build CMakeFiles/TowerDefense.dir/Scene.cpp.o: CXX_COMPILER__TowerDefense_unscanned_Debug /Users/pengaki/Desktop/SDL_Projects/TowerDefense/Scene.cpp || cmake_object_order_depends_target_TowerDefense
+  DEP_FILE = CMakeFiles/TowerDefense.dir/Scene.cpp.o.d
+  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.6 -fcolor-diagnostics
+  INCLUDES = -I/Users/pengaki/Desktop/SDL_Projects/TowerDefense/include -F/Library/Frameworks
   OBJECT_DIR = CMakeFiles/TowerDefense.dir
   OBJECT_FILE_DIR = CMakeFiles/TowerDefense.dir
 
 build CMakeFiles/TowerDefense.dir/SceneManager.cpp.o: CXX_COMPILER__TowerDefense_unscanned_Debug /Users/pengaki/Desktop/SDL_Projects/TowerDefense/SceneManager.cpp || cmake_object_order_depends_target_TowerDefense
   DEP_FILE = CMakeFiles/TowerDefense.dir/SceneManager.cpp.o.d
   FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.6 -fcolor-diagnostics
-  INCLUDES = -F/Library/Frameworks
+  INCLUDES = -I/Users/pengaki/Desktop/SDL_Projects/TowerDefense/include -F/Library/Frameworks
+  OBJECT_DIR = CMakeFiles/TowerDefense.dir
+  OBJECT_FILE_DIR = CMakeFiles/TowerDefense.dir
+
+build CMakeFiles/TowerDefense.dir/Tile.cpp.o: CXX_COMPILER__TowerDefense_unscanned_Debug /Users/pengaki/Desktop/SDL_Projects/TowerDefense/Tile.cpp || cmake_object_order_depends_target_TowerDefense
+  DEP_FILE = CMakeFiles/TowerDefense.dir/Tile.cpp.o.d
+  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.6 -fcolor-diagnostics
+  INCLUDES = -I/Users/pengaki/Desktop/SDL_Projects/TowerDefense/include -F/Library/Frameworks
+  OBJECT_DIR = CMakeFiles/TowerDefense.dir
+  OBJECT_FILE_DIR = CMakeFiles/TowerDefense.dir
+
+build CMakeFiles/TowerDefense.dir/TileGrid.cpp.o: CXX_COMPILER__TowerDefense_unscanned_Debug /Users/pengaki/Desktop/SDL_Projects/TowerDefense/TileGrid.cpp || cmake_object_order_depends_target_TowerDefense
+  DEP_FILE = CMakeFiles/TowerDefense.dir/TileGrid.cpp.o.d
+  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.6 -fcolor-diagnostics
+  INCLUDES = -I/Users/pengaki/Desktop/SDL_Projects/TowerDefense/include -F/Library/Frameworks
+  OBJECT_DIR = CMakeFiles/TowerDefense.dir
+  OBJECT_FILE_DIR = CMakeFiles/TowerDefense.dir
+
+build CMakeFiles/TowerDefense.dir/Timer.cpp.o: CXX_COMPILER__TowerDefense_unscanned_Debug /Users/pengaki/Desktop/SDL_Projects/TowerDefense/Timer.cpp || cmake_object_order_depends_target_TowerDefense
+  DEP_FILE = CMakeFiles/TowerDefense.dir/Timer.cpp.o.d
+  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.6 -fcolor-diagnostics
+  INCLUDES = -I/Users/pengaki/Desktop/SDL_Projects/TowerDefense/include -F/Library/Frameworks
+  OBJECT_DIR = CMakeFiles/TowerDefense.dir
+  OBJECT_FILE_DIR = CMakeFiles/TowerDefense.dir
+
+build CMakeFiles/TowerDefense.dir/Vector2.cpp.o: CXX_COMPILER__TowerDefense_unscanned_Debug /Users/pengaki/Desktop/SDL_Projects/TowerDefense/Vector2.cpp || cmake_object_order_depends_target_TowerDefense
+  DEP_FILE = CMakeFiles/TowerDefense.dir/Vector2.cpp.o.d
+  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.6 -fcolor-diagnostics
+  INCLUDES = -I/Users/pengaki/Desktop/SDL_Projects/TowerDefense/include -F/Library/Frameworks
+  OBJECT_DIR = CMakeFiles/TowerDefense.dir
+  OBJECT_FILE_DIR = CMakeFiles/TowerDefense.dir
+
+build CMakeFiles/TowerDefense.dir/main.cpp.o: CXX_COMPILER__TowerDefense_unscanned_Debug /Users/pengaki/Desktop/SDL_Projects/TowerDefense/main.cpp || cmake_object_order_depends_target_TowerDefense
+  DEP_FILE = CMakeFiles/TowerDefense.dir/main.cpp.o.d
+  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.6 -fcolor-diagnostics
+  INCLUDES = -I/Users/pengaki/Desktop/SDL_Projects/TowerDefense/include -F/Library/Frameworks
   OBJECT_DIR = CMakeFiles/TowerDefense.dir
   OBJECT_FILE_DIR = CMakeFiles/TowerDefense.dir
 
@@ -134,9 +148,9 @@ build CMakeFiles/TowerDefense.dir/SceneManager.cpp.o: CXX_COMPILER__TowerDefense
 #############################################
 # Link the executable TowerDefense
 
-build TowerDefense: CXX_EXECUTABLE_LINKER__TowerDefense_Debug CMakeFiles/TowerDefense.dir/main.cpp.o CMakeFiles/TowerDefense.dir/Application.cpp.o CMakeFiles/TowerDefense.dir/GameObject.cpp.o CMakeFiles/TowerDefense.dir/Component.cpp.o CMakeFiles/TowerDefense.dir/Tile.cpp.o CMakeFiles/TowerDefense.dir/TileGrid.cpp.o CMakeFiles/TowerDefense.dir/Timer.cpp.o CMakeFiles/TowerDefense.dir/Vector2.cpp.o CMakeFiles/TowerDefense.dir/Scene.cpp.o CMakeFiles/TowerDefense.dir/GameplayScene.cpp.o CMakeFiles/TowerDefense.dir/SceneManager.cpp.o | /Library/Frameworks/SDL2.framework/SDL2 /Library/Frameworks/SDL2_image.framework/SDL2_image
+build TowerDefense: CXX_EXECUTABLE_LINKER__TowerDefense_Debug CMakeFiles/TowerDefense.dir/Application.cpp.o CMakeFiles/TowerDefense.dir/Component.cpp.o CMakeFiles/TowerDefense.dir/GameObject.cpp.o CMakeFiles/TowerDefense.dir/GameplayScene.cpp.o CMakeFiles/TowerDefense.dir/ObjectFactory.cpp.o CMakeFiles/TowerDefense.dir/PoolSystem.cpp.o CMakeFiles/TowerDefense.dir/Scene.cpp.o CMakeFiles/TowerDefense.dir/SceneManager.cpp.o CMakeFiles/TowerDefense.dir/Tile.cpp.o CMakeFiles/TowerDefense.dir/TileGrid.cpp.o CMakeFiles/TowerDefense.dir/Timer.cpp.o CMakeFiles/TowerDefense.dir/Vector2.cpp.o CMakeFiles/TowerDefense.dir/main.cpp.o | /Library/Frameworks/SDL2.framework/SDL2 /Library/Frameworks/SDL2_image.framework/SDL2_image /Library/Frameworks/SDL2_ttf.framework/SDL2_ttf
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.6
-  LINK_LIBRARIES = -Wl,-rpath,/Library/Frameworks  /Library/Frameworks/SDL2.framework/SDL2  /Library/Frameworks/SDL2_image.framework/SDL2_image
+  LINK_LIBRARIES = -Wl,-rpath,/Library/Frameworks  /Library/Frameworks/SDL2.framework/SDL2  /Library/Frameworks/SDL2_image.framework/SDL2_image  /Library/Frameworks/SDL2_ttf.framework/SDL2_ttf
   OBJECT_DIR = CMakeFiles/TowerDefense.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -186,14 +200,14 @@ build all: phony TowerDefense
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/FeatureSummary.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/UnixPaths.cmake /Library/Frameworks/SDL2.framework/Resources/CMake/sdl2-config-version.cmake /Library/Frameworks/SDL2.framework/Resources/CMake/sdl2-config.cmake /Library/Frameworks/SDL2_image.framework/Resources/CMake/sdl2_image-config-version.cmake /Library/Frameworks/SDL2_image.framework/Resources/CMake/sdl2_image-config.cmake /Users/pengaki/Desktop/SDL_Projects/TowerDefense/CMakeLists.txt CMakeCache.txt CMakeFiles/3.27.8/CMakeCCompiler.cmake CMakeFiles/3.27.8/CMakeCXXCompiler.cmake CMakeFiles/3.27.8/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeFindDependencyMacro.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/FeatureSummary.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/UnixPaths.cmake /Library/Frameworks/SDL2.framework/Resources/CMake/sdl2-config-version.cmake /Library/Frameworks/SDL2.framework/Resources/CMake/sdl2-config.cmake /Library/Frameworks/SDL2_image.framework/Resources/CMake/sdl2_image-config-version.cmake /Library/Frameworks/SDL2_image.framework/Resources/CMake/sdl2_image-config.cmake /Users/pengaki/Desktop/SDL_Projects/TowerDefense/CMakeLists.txt /usr/local/lib/cmake/SDL2_ttf/sdl2_ttf-config-version.cmake /usr/local/lib/cmake/SDL2_ttf/sdl2_ttf-config.cmake CMakeCache.txt CMakeFiles/3.27.8/CMakeCCompiler.cmake CMakeFiles/3.27.8/CMakeCXXCompiler.cmake CMakeFiles/3.27.8/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/FeatureSummary.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/UnixPaths.cmake /Library/Frameworks/SDL2.framework/Resources/CMake/sdl2-config-version.cmake /Library/Frameworks/SDL2.framework/Resources/CMake/sdl2-config.cmake /Library/Frameworks/SDL2_image.framework/Resources/CMake/sdl2_image-config-version.cmake /Library/Frameworks/SDL2_image.framework/Resources/CMake/sdl2_image-config.cmake /Users/pengaki/Desktop/SDL_Projects/TowerDefense/CMakeLists.txt CMakeCache.txt CMakeFiles/3.27.8/CMakeCCompiler.cmake CMakeFiles/3.27.8/CMakeCXXCompiler.cmake CMakeFiles/3.27.8/CMakeSystem.cmake: phony
+build /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeFindDependencyMacro.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/FeatureSummary.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Platform/UnixPaths.cmake /Library/Frameworks/SDL2.framework/Resources/CMake/sdl2-config-version.cmake /Library/Frameworks/SDL2.framework/Resources/CMake/sdl2-config.cmake /Library/Frameworks/SDL2_image.framework/Resources/CMake/sdl2_image-config-version.cmake /Library/Frameworks/SDL2_image.framework/Resources/CMake/sdl2_image-config.cmake /Users/pengaki/Desktop/SDL_Projects/TowerDefense/CMakeLists.txt /usr/local/lib/cmake/SDL2_ttf/sdl2_ttf-config-version.cmake /usr/local/lib/cmake/SDL2_ttf/sdl2_ttf-config.cmake CMakeCache.txt CMakeFiles/3.27.8/CMakeCCompiler.cmake CMakeFiles/3.27.8/CMakeCXXCompiler.cmake CMakeFiles/3.27.8/CMakeSystem.cmake: phony
 
 
 #############################################

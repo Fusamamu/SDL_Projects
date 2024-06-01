@@ -1,5 +1,6 @@
 #include "GameplayScene.h"
-#include "Application.h"
+#include "include/Application.h"
+#include "include/GameObject.h"
 
 GameplayScene::GameplayScene()
 {
@@ -55,35 +56,14 @@ void GameplayScene::Enter()
     for(Tile* _tile : _path)
         _tile->Object->Renderer->Color = { 255, 0, 0, SDL_ALPHA_OPAQUE };
 
-    auto* _enemy = CREATE_OBJECT(Orc);
-    _enemy->Renderer->Texture = Application::GetInstance().GetTexture("OrcWalk");
-    _enemy->Renderer->Src  = {0, 0, 48, 48 };
-    _enemy->Renderer->Dest = {0, 0, 48, 48 };
-    _enemy->Renderer->FlipVertical = true;
-
+    auto* _enemy = Create(ObjectType::ENEMY, "Orc", this);
     _enemy->SetLayer(1);
-    _enemy->Transform->Position.x = Grid->GetTile(0, 0)->Object->Transform->Position.x;
-    _enemy->Transform->Position.y = Grid->GetTile(0, 0)->Object->Transform->Position.y;
+    _enemy->SET_POSITION(Grid->GetTilePosition(0, 0));
+    _enemy->GetComponent<FollowPathComponent>()->SetTargetPath(_path);
 
-    auto* _followComp = _enemy->AddComponent<FollowPathComponent>();
-    _followComp->SetTargetPath(_path);
-
-    auto* _spriteAnimation = _enemy->AddComponent<SpriteAnimationComponent>();
-    _spriteAnimation->SetSheetDimension(1, 6);
-    _spriteAnimation->AnimationSpeed = 25;
-
-    auto* _tower = CREATE_OBJECT(Tower);
-    _tower->Renderer->Texture = Application::GetInstance().GetTexture("Tower");
-    _tower->Renderer->Src = { 0, 0, 70, 130 };
-    _tower->Renderer->Dest= { 0, 0, 70, 130 };
-
+    auto* _tower = Create(ObjectType::TOWER, "Tower", this);
     _tower->SetLayer(1);
-    _tower->Transform->Position.x = 500;
-    _tower->Transform->Position.y = 500;
-
-    auto* _towerSpriteAnimation = _tower->AddComponent<SpriteAnimationComponent>();
-    _towerSpriteAnimation->SetSheetDimension(1, 6);
-    _towerSpriteAnimation->AnimationSpeed = 10;
+    _tower->SET_POSITION(Vector2(500, 500));
 }
 
 void GameplayScene::HandleEvents()

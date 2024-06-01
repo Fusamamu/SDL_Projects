@@ -1,7 +1,7 @@
 #pragma once
 #include <map>
 #include <unordered_map>
-#include "GameObject.h"
+#include "include/GameObject.h"
 
 #define CREATE_OBJECT(x) new GameObject(#x, this)
 

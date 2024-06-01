@@ -4,7 +4,7 @@
 #include <thread>
 #include <chrono>
 #include "TileGrid.h"
-#include "Application.h"
+#include "include/Application.h"
 
 //const char* MAP_1 =
 //        "- - - - - - - - - - - - - - - - - - - - - - - - - -\n"
@@ -152,6 +152,11 @@ Tile* TileGrid::GetTile(int _rowIdx, int _columnIdx)
         return nullptr;
 
     return Tiles[_rowIdx * RowCount + _columnIdx];
+}
+
+Vector2 TileGrid::GetTilePosition(int _rowIdx, int _columnIdx)
+{
+    return GetTile(_rowIdx, _columnIdx)->Object->Transform->Position;
 }
 
 std::vector<Tile*> TileGrid::GetNeighbors(Tile* _tile)

@@ -6,11 +6,12 @@
 #include <iomanip>
 #include "SDL2/SDL.h"
 #include "SDL2_image/SDL_image.h"
+#include "SDL2_ttf/SDL_ttf.h"
 #include "GameObject.h"
-#include "Tile.h"
-#include "TileGrid.h"
-#include "Timer.h"
-#include "SceneManager.h"
+#include "../Tile.h"
+#include "../TileGrid.h"
+#include "../Timer.h"
+#include "../SceneManager.h"
 
 class Application
 {

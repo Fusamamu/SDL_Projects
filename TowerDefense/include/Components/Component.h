@@ -1,8 +1,10 @@
 #pragma once
+#include <iostream>
 #include <vector>
 #include "SDL2/SDL.h"
-#include "Tile.h"
-#include "Vector2.h"
+#include "SDL2_ttf/SDL_ttf.h"
+#include "../../Tile.h"
+#include "../../Vector2.h"
 
 class GameObject;
 
@@ -43,6 +45,27 @@ public:
 
 public:
     explicit RendererComponent();
+    void Init() override;
+    void Update() override;
+};
+
+//class BoxCollider2D: public Component
+//{
+//public:
+//    float Width;
+//    float Height;
+//public:
+//    explicit BoxCollider2D();
+//    void Init() override;
+//    void Update() override;
+//};
+
+class CircleCollider2D : public Component
+{
+public:
+    float Radius;
+public:
+    explicit CircleCollider2D();
     void Init() override;
     void Update() override;
 };

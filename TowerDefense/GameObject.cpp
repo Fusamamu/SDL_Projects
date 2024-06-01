@@ -1,11 +1,12 @@
-#include "GameObject.h"
+#include "include/GameObject.h"
 
 #include <utility>
-#include "Application.h"
+#include "include/Application.h"
 #include "Scene.h"
 
 GameObject::GameObject(const std::string& _name, Scene* _scene):
 Layer(0),
+IsActive(true),
 Transform(nullptr),
 Renderer(nullptr),
 OwnScene(_scene)

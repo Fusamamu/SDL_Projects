@@ -1,4 +1,4 @@
-#include "Application.h"
+#include "include/Application.h"
 
 Application::Application():
         m_IsRunning(true),
@@ -12,6 +12,12 @@ Application::Application():
     }
 
     SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "0");
+
+    if ( TTF_Init() < 0 )
+    {
+        printf("SDL_TTF could not initialize! SDL_Error: %s\n", TTF_GetError());
+        return;
+    }
 
     Window = SDL_CreateWindow
             (

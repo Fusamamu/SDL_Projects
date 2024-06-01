@@ -4,7 +4,9 @@
 #include <typeindex>
 #include <unordered_map>
 #include <algorithm>
-#include "Component.h"
+#include "Components/Component.h"
+
+#define SET_POSITION(x) Transform->Position = x
 
 class Application;
 class Scene;
@@ -16,6 +18,7 @@ public:
     std::string Name;
 
     int Layer;
+    bool IsActive;
 
     Scene* OwnScene;
 
