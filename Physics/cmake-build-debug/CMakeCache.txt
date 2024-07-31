@@ -222,6 +222,9 @@ Physics_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 Physics_SOURCE_DIR:STATIC=/Users/pengaki/Desktop/SDL_Projects/Physics
 
+//The directory containing a CMake configuration file for SDL2.
+SDL2_DIR:PATH=/Library/Frameworks/SDL2.framework/Resources/CMake
+
 
 ########################
 # INTERNAL cache entries

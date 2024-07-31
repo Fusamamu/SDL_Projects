@@ -3,10 +3,16 @@
 #include <vector>
 #include "SDL2/SDL.h"
 #include "SDL2_ttf/SDL_ttf.h"
-#include "../../Tile.h"
-#include "../../Vector2.h"
+#include "../Tile.h"
+#include "../Vector2.h"
 
 class GameObject;
+
+class IRenderable
+{
+public:
+    virtual void Render() = 0;
+};
 
 class Component
 {
@@ -25,26 +31,6 @@ public:
     float ScaleX, ScaleY;
 public:
     explicit TransformComponent();
-    void Init() override;
-    void Update() override;
-};
-
-class RendererComponent : public Component
-{
-public:
-    bool FlipVertical;
-    bool UsePrimitive;
-    bool RenderBound;
-
-    SDL_Renderer* Render;
-    SDL_Color Color;
-    SDL_Color BoundColor;
-    SDL_Rect Src;
-    SDL_Rect Dest;
-    SDL_Texture* Texture;
-
-public:
-    explicit RendererComponent();
     void Init() override;
     void Update() override;
 };

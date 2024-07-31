@@ -4,7 +4,7 @@
 #include <thread>
 #include <chrono>
 #include "TileGrid.h"
-#include "include/Application.h"
+#include "Application.h"
 
 //const char* MAP_1 =
 //        "- - - - - - - - - - - - - - - - - - - - - - - - - -\n"
@@ -117,7 +117,7 @@ void TileGrid::LoadMap(const char* _mapData, Scene* _scene)
         int _targetPosY = _i * TileUnitSize + _app.SCREEN_HEIGHT / 2 - GetTotalHeight()/2;
         int _targetPosX = _j * TileUnitSize + _app.SCREEN_WIDTH / 2  - GetTotalWidth() /2;
 
-        _tile->Object = new GameObject("Tile", _scene);
+        _tile->Object = new GameObject("Tile");
         _tile->Object->Transform->Position.x = static_cast<float>(_targetPosX);
         _tile->Object->Transform->Position.y = static_cast<float>(_targetPosY);
 

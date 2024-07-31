@@ -1,24 +1,31 @@
-#include "Components/TextComponent.h"
 #include "Application.h"
+#include "Components/RendererComponent.h"
+#include "Components/TextComponent.h"
 
-TextComponent::TextComponent()
+TextComponent::TextComponent():
+TextColor({255, 255, 255, SDL_ALPHA_OPAQUE}),
+HorizontalAlignment(TextHorizontalAlignment::CENTER),
+VerticalAlignment  (TextVerticalAlignment::CENTER)
 {
 
 }
 
+TextComponent::~TextComponent()
+{
+    SDL_DestroyTexture(TextTexture);
+    TextTexture = nullptr;
+}
+
 void TextComponent::Init()
 {
-    TTF_Font* _font = TTF_OpenFont("path/to/your/_font.ttf", 28);
-
+    TTF_Font* _font = TTF_OpenFont("../Resource/Fonts/open-sans/OpenSans-Bold.ttf", 28);
     if (_font == nullptr)
     {
         std::cout << "Failed to load _font! TTF_Error: " << TTF_GetError() << std::endl;
         return;
     }
 
-    SDL_Color _textColor = {255, 255, 255 };
-
-    SDL_Surface* _textSurface = TTF_RenderText_Solid(_font, "Hello, SDL_ttf!", _textColor);
+    SDL_Surface* _textSurface = TTF_RenderText_Solid(_font, "Hello, SDL_ttf!", TextColor);
     if (_textSurface == nullptr)
     {
         std::cout << "Unable to render text surface! TTF_Error: " << TTF_GetError() << std::endl;
@@ -32,23 +39,26 @@ void TextComponent::Init()
         return;
     }
 
-    TextWidth  = _textSurface->w;
-    TextHeight = _textSurface->h;
-
-    Dest.w = TextWidth;
-    Dest.h = TextHeight;
+    Owner->Renderer->UseSrc  = false;
+    Owner->Renderer->Texture = TextTexture;
+    Owner->Renderer->Dest.w  = _textSurface->w;
+    Owner->Renderer->Dest.h  = _textSurface->h;
 
     SDL_FreeSurface(_textSurface);
 }
 
 void TextComponent::Update()
 {
-    auto* Transform = Owner->Transform;
+}
 
-    Dest.x = static_cast<int>(Transform->Position.x - Dest.w / 2);
-    Dest.y = static_cast<int>(Transform->Position.y - Dest.h / 2);
-    Dest.w *= static_cast<int>(Transform->ScaleX);
-    Dest.h *= static_cast<int>(Transform->ScaleY);
+int TextComponent::Width() const
+{
+    ///return Dest.w * Owner->Transform->ScaleX;
+    return -1;
+}
 
-    SDL_RenderCopy(Application::GetInstance().Renderer, TextTexture, nullptr, &Dest);
+int TextComponent::Height() const
+{
+    return -1;
+    //return Dest.h * Owner->Transform->ScaleY;
 }

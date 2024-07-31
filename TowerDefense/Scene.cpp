@@ -1,6 +1,6 @@
-#include "Scene.h"
-#include "include/Application.h"
 #include <algorithm>
+#include "Application.h"
+#include "Scene.h"
 
 void Scene::AddGameObject(GameObject *_object)
 {

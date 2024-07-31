@@ -1,6 +1,6 @@
 #include "GameplayScene.h"
-#include "include/Application.h"
-#include "include/GameObject.h"
+#include "GameObject.h"
+#include "Components/TextComponent.h"
 
 GameplayScene::GameplayScene()
 {
@@ -56,14 +56,17 @@ void GameplayScene::Enter()
     for(Tile* _tile : _path)
         _tile->Object->Renderer->Color = { 255, 0, 0, SDL_ALPHA_OPAQUE };
 
-    auto* _enemy = Create(ObjectType::ENEMY, "Orc", this);
+    auto* _enemy = Create(ObjectType::ENEMY, "Orc");
     _enemy->SetLayer(1);
     _enemy->SET_POSITION(Grid->GetTilePosition(0, 0));
     _enemy->GetComponent<FollowPathComponent>()->SetTargetPath(_path);
 
-    auto* _tower = Create(ObjectType::TOWER, "Tower", this);
+    auto* _tower = Create(ObjectType::TOWER, "Tower");
     _tower->SetLayer(1);
     _tower->SET_POSITION(Vector2(500, 500));
+
+    auto* _text = new GameObject("Text");
+    _text->AddComponent<TextComponent>();
 }
 
 void GameplayScene::HandleEvents()

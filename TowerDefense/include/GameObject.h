@@ -2,9 +2,10 @@
 #include <memory>
 #include <string>
 #include <typeindex>
-#include <unordered_map>
 #include <algorithm>
+#include <unordered_map>
 #include "Components/Component.h"
+#include "Components/RendererComponent.h"
 
 #define SET_POSITION(x) Transform->Position = x
 
@@ -25,7 +26,7 @@ public:
     TransformComponent* Transform;
     RendererComponent*  Renderer;
 public:
-    GameObject(const std::string& _name, Scene* _scene);
+    GameObject(const std::string& _name);
     GameObject();
     ~GameObject();
 

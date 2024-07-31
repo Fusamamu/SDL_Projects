@@ -18,35 +18,11 @@ file(GLOB HEADER_FILES include/*.h)
 
 add_executable(${PROJECT_NAME}
                 ${SOURCE_FILES}
-                ${HEADER_FILES})
-
-#add_executable(${PROJECT_NAME} main.cpp
-#        include/Application.h
-#        Application.cpp
-#        GameObject.h
-#        GameObject.cpp
-#        Component.h
-#        Component.cpp
-#        Tile.h
-#        Tile.cpp
-#        TileGrid.h
-#        TileGrid.cpp
-#        Timer.h
-#        Timer.cpp
-#        Vector2.h
-#        Vector2.cpp
-#        Scene.h
-#        Scene.h
-#        Scene.cpp
-#        GameplayScene.h
-#        GameplayScene.cpp
-#        SceneManager.h
-#        SceneManager.cpp
-#        ObjectFactory.h
-#        ObjectFactory.cpp
-#        PoolSystem.cpp
-#        include/Components/TextComponent.h
-#        Components/TextComponent.cpp)
+                ${HEADER_FILES}
+        include/Components/TextComponent.h
+        Components/TextComponent.cpp
+        include/Components/RendererComponent.h
+        Components/RendererComponent.cpp)
 
 target_include_directories(${PROJECT_NAME} PUBLIC "include")
 target_include_directories(${PROJECT_NAME} PUBLIC "/Library/Frameworks/SDL2.framework")

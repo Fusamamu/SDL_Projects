@@ -1,9 +1,10 @@
-#include "include/Application.h"
+#include "Application.h"
+#include "SceneManager.h"
 #include "ObjectFactory.h"
 
-GameObject* Create(ObjectType _type, std::string _name, Scene* _scene)
+GameObject* Create(ObjectType _type, std::string _name)
 {
-    GameObject* _result = new GameObject(_name, _scene);
+    GameObject* _result = new GameObject(_name);
     switch(_type)
     {
         case ObjectType::ENEMY:

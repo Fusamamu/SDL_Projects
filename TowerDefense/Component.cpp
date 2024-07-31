@@ -1,7 +1,7 @@
 #include "Timer.h"
-#include "include/Components/Component.h"
-#include "include/GameObject.h"
-#include "include/Application.h"
+#include "Components/Component.h"
+#include "GameObject.h"
+#include "Application.h"
 
 TransformComponent::TransformComponent():
 ScaleX(1),
@@ -18,52 +18,6 @@ void TransformComponent::Init()
 void TransformComponent::Update()
 {
 
-}
-
-RendererComponent::RendererComponent():
-        FlipVertical(false),
-        Render(nullptr),
-        UsePrimitive(false),
-        RenderBound(false)
-{
-
-}
-
-void RendererComponent::Init()
-{
-}
-
-void RendererComponent::Update()
-{
-    if(!Owner->IsActive)
-        return;
-
-    auto* Transform = Owner->Transform;
-
-    Dest.x = static_cast<int>(Transform->Position.x - Dest.w / 2);
-    Dest.y = static_cast<int>(Transform->Position.y - Dest.h / 2);
-    Dest.w *= static_cast<int>(Transform->ScaleX);
-    Dest.h *= static_cast<int>(Transform->ScaleY);
-
-    if(UsePrimitive)
-    {
-        SDL_SetRenderDrawColor(Render, Color.r, Color.g, Color.b, SDL_ALPHA_OPAQUE);
-        SDL_RenderFillRect(Render, &Dest);
-    }
-    else
-    {
-        SDL_Point center { 0, 0 };
-        if(!FlipVertical)
-            SDL_RenderCopy(Render, Texture, &Src, &Dest);
-        else
-            SDL_RenderCopyEx(Render, Texture, &Src, &Dest, 0, &center, SDL_FLIP_HORIZONTAL);
-    }
-
-    if(RenderBound)
-    {
-        SDL_SetRenderDrawColor(Render, BoundColor.r, BoundColor.g, BoundColor.b, SDL_ALPHA_OPAQUE);
-        SDL_RenderDrawRect(Render, &Dest);
-    }
 }
 
 SpriteAnimationComponent::SpriteAnimationComponent():

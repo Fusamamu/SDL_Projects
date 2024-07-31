@@ -140,6 +140,20 @@ build CMakeFiles/TowerDefense.dir/main.cpp.o: CXX_COMPILER__TowerDefense_unscann
   OBJECT_DIR = CMakeFiles/TowerDefense.dir
   OBJECT_FILE_DIR = CMakeFiles/TowerDefense.dir
 
+build CMakeFiles/TowerDefense.dir/Components/TextComponent.cpp.o: CXX_COMPILER__TowerDefense_unscanned_Debug /Users/pengaki/Desktop/SDL_Projects/TowerDefense/Components/TextComponent.cpp || cmake_object_order_depends_target_TowerDefense
+  DEP_FILE = CMakeFiles/TowerDefense.dir/Components/TextComponent.cpp.o.d
+  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.6 -fcolor-diagnostics
+  INCLUDES = -I/Users/pengaki/Desktop/SDL_Projects/TowerDefense/include -F/Library/Frameworks
+  OBJECT_DIR = CMakeFiles/TowerDefense.dir
+  OBJECT_FILE_DIR = CMakeFiles/TowerDefense.dir/Components
+
+build CMakeFiles/TowerDefense.dir/Components/RendererComponent.cpp.o: CXX_COMPILER__TowerDefense_unscanned_Debug /Users/pengaki/Desktop/SDL_Projects/TowerDefense/Components/RendererComponent.cpp || cmake_object_order_depends_target_TowerDefense
+  DEP_FILE = CMakeFiles/TowerDefense.dir/Components/RendererComponent.cpp.o.d
+  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.6 -fcolor-diagnostics
+  INCLUDES = -I/Users/pengaki/Desktop/SDL_Projects/TowerDefense/include -F/Library/Frameworks
+  OBJECT_DIR = CMakeFiles/TowerDefense.dir
+  OBJECT_FILE_DIR = CMakeFiles/TowerDefense.dir/Components
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target TowerDefense
@@ -148,7 +162,7 @@ build CMakeFiles/TowerDefense.dir/main.cpp.o: CXX_COMPILER__TowerDefense_unscann
 #############################################
 # Link the executable TowerDefense
 
-build TowerDefense: CXX_EXECUTABLE_LINKER__TowerDefense_Debug CMakeFiles/TowerDefense.dir/Application.cpp.o CMakeFiles/TowerDefense.dir/Component.cpp.o CMakeFiles/TowerDefense.dir/GameObject.cpp.o CMakeFiles/TowerDefense.dir/GameplayScene.cpp.o CMakeFiles/TowerDefense.dir/ObjectFactory.cpp.o CMakeFiles/TowerDefense.dir/PoolSystem.cpp.o CMakeFiles/TowerDefense.dir/Scene.cpp.o CMakeFiles/TowerDefense.dir/SceneManager.cpp.o CMakeFiles/TowerDefense.dir/Tile.cpp.o CMakeFiles/TowerDefense.dir/TileGrid.cpp.o CMakeFiles/TowerDefense.dir/Timer.cpp.o CMakeFiles/TowerDefense.dir/Vector2.cpp.o CMakeFiles/TowerDefense.dir/main.cpp.o | /Library/Frameworks/SDL2.framework/SDL2 /Library/Frameworks/SDL2_image.framework/SDL2_image /Library/Frameworks/SDL2_ttf.framework/SDL2_ttf
+build TowerDefense: CXX_EXECUTABLE_LINKER__TowerDefense_Debug CMakeFiles/TowerDefense.dir/Application.cpp.o CMakeFiles/TowerDefense.dir/Component.cpp.o CMakeFiles/TowerDefense.dir/GameObject.cpp.o CMakeFiles/TowerDefense.dir/GameplayScene.cpp.o CMakeFiles/TowerDefense.dir/ObjectFactory.cpp.o CMakeFiles/TowerDefense.dir/PoolSystem.cpp.o CMakeFiles/TowerDefense.dir/Scene.cpp.o CMakeFiles/TowerDefense.dir/SceneManager.cpp.o CMakeFiles/TowerDefense.dir/Tile.cpp.o CMakeFiles/TowerDefense.dir/TileGrid.cpp.o CMakeFiles/TowerDefense.dir/Timer.cpp.o CMakeFiles/TowerDefense.dir/Vector2.cpp.o CMakeFiles/TowerDefense.dir/main.cpp.o CMakeFiles/TowerDefense.dir/Components/TextComponent.cpp.o CMakeFiles/TowerDefense.dir/Components/RendererComponent.cpp.o | /Library/Frameworks/SDL2.framework/SDL2 /Library/Frameworks/SDL2_image.framework/SDL2_image /Library/Frameworks/SDL2_ttf.framework/SDL2_ttf
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.6
   LINK_LIBRARIES = -Wl,-rpath,/Library/Frameworks  /Library/Frameworks/SDL2.framework/SDL2  /Library/Frameworks/SDL2_image.framework/SDL2_image  /Library/Frameworks/SDL2_ttf.framework/SDL2_ttf
   OBJECT_DIR = CMakeFiles/TowerDefense.dir
