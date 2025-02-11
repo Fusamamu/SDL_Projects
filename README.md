@@ -6,11 +6,14 @@ This repository is a collection of small **SDL2** projects I’ve built over tim
 - **2D Raycasting** – Basic implementation of raycasting for box2D 
 - **Immediate Mode GUI** – A simple GUI system using SDL2 for rapid prototyping.  
 - **Quadtree** – Spatial partitioning for optimizing collision detection.  
+- **Insertion Sort Visualization** – A visual representation of the insertion sort algorithm using SDL2.  
+- **Mini Tower Defense (Pathfinding WIP)** – A basic tower defense prototype focused on pathfinding.  
 
 ![Demo](Images/Raycast.gif)
 ![Demo](Images/MGui.gif)
 ![Demo](Images/QuadTree.gif)
 ![Demo](Images/Sort.gif)
+![Demo](Images/TowerDefense.gif)
 
 ## Why This Repo Exists  
 I created this repository as a **sandbox** to experiment with SDL2 and explore fundamental game development techniques. It’s an evolving collection where I refine my understanding of C++.  
