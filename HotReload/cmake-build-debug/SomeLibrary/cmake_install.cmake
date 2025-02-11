@@ -1,4 +1,4 @@
-# Install script for directory: /Users/pengaki/Desktop/SDL_Projects/HotReload/SomeLibrary
+# Install script for directory: /Users/pengaki/Desktop/Side Projects/SDL_Projects/HotReload/SomeLibrary
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

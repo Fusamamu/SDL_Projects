@@ -1,3 +1,0 @@
-/Users/pengaki/Desktop/SDL_Projects/Playground/Singleton/cmake-build-debug/CMakeFiles/Singleton.dir
-/Users/pengaki/Desktop/SDL_Projects/Playground/Singleton/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/pengaki/Desktop/SDL_Projects/Playground/Singleton/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,6 +1,6 @@
-/Users/pengaki/Desktop/SDL_Projects/HotReload/cmake-build-debug/CMakeFiles/HotReload.dir
-/Users/pengaki/Desktop/SDL_Projects/HotReload/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/pengaki/Desktop/SDL_Projects/HotReload/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/pengaki/Desktop/SDL_Projects/HotReload/cmake-build-debug/SomeLibrary/CMakeFiles/SomeLib.dir
-/Users/pengaki/Desktop/SDL_Projects/HotReload/cmake-build-debug/SomeLibrary/CMakeFiles/edit_cache.dir
-/Users/pengaki/Desktop/SDL_Projects/HotReload/cmake-build-debug/SomeLibrary/CMakeFiles/rebuild_cache.dir
+/Users/pengaki/Desktop/Side Projects/SDL_Projects/HotReload/cmake-build-debug/CMakeFiles/HotReload.dir
+/Users/pengaki/Desktop/Side Projects/SDL_Projects/HotReload/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/pengaki/Desktop/Side Projects/SDL_Projects/HotReload/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/pengaki/Desktop/Side Projects/SDL_Projects/HotReload/cmake-build-debug/SomeLibrary/CMakeFiles/SomeLib.dir
+/Users/pengaki/Desktop/Side Projects/SDL_Projects/HotReload/cmake-build-debug/SomeLibrary/CMakeFiles/edit_cache.dir
+/Users/pengaki/Desktop/Side Projects/SDL_Projects/HotReload/cmake-build-debug/SomeLibrary/CMakeFiles/rebuild_cache.dir
